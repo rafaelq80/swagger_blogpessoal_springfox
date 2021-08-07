@@ -248,3 +248,9 @@ As alterações acima transformam a classe principal da nossa API (**Blogpessoal
 
 <div align="center"><img width="900px" src="https://i.imgur.com/UYOulUu.png" title="source: imgur.com" /></div>
 
+
+
+<h2 id="ref">Referências</h2>
+
+<a href="https://springfox.github.io/springfox/" target="_blank">Documentação Oficial do Swagger 3.0</a>
+
