@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-<h1>Documentação da API com o Swagger 3.0
-=======
+
 <h1>Documentação da API com o Swagger 3.0</h1>
->>>>>>> 2783f5736008e6dfcb4a65e3c16c64b900e8fc90
 
 
 Nesta atividade iremos implementar a Documentação da nossa API com o Swagger. 
@@ -11,25 +8,14 @@ Utilize o e-book sobre Swagger (<a href="https://github.com/rafaelq80/swagger_bl
 
 ## Boas Práticas
 
-<<<<<<< HEAD
-1. <a href="#dep">Configure as Dependências no arquivo pom.xml</a>
-2. <a href="#swg">SwaggerConfig</a>
-3. <a href="#exec">Executando o Swagger</a>
-4. <a href="#ind">Definindo o Swagger como página principal da API</a>
-5. <a href="#pdf">Gerando o PDF da Documentação</a>
+1. Configure as Dependências no arquivo pom.xml
+2. SwaggerConfig
+3. Executando o Swagger
+4. Definindo o Swagger como página principal da API
+5. Gerando o PDF da Documentação
 
 
-=======
-
-1) Configurando as Dependências
-2) SwaggerConfig
-3) Executando o Swagger
-4) Definindo o Swagger como página principal da API
-5) Gerando o PDF da Documentação
->>>>>>> 2783f5736008e6dfcb4a65e3c16c64b900e8fc90
-
-
-<h2 id="#dep">Dependências</h2>
+<h2 id="#dep">#Passo 1 - Dependências</h2>
 
 Configurando o pom.xml
 
@@ -44,7 +30,7 @@ Insira a seguinte dependência no projeto:
 
 
 
-<h2 id="#swg">SwaggerConfig</h2>
+<h2 id="#swg">#Passo 2 - SwaggerConfig</h2>
 
 Crie uma nova package no seu projeto chamada **configuration** , dentro dela crie uma classe chamada SwaggerConfig e configure segundo o  modelo abaixo:
 
@@ -130,7 +116,8 @@ public class SwaggerConfig {
 
 
 
-<h2 id="#exec">Executando o Swagger</h2>
+
+<h2 id="#exec">#Passo 3 - Executando o Swagger</h2>
 
 
 Inicie a API, abra o seu navegador na Internet e digite o endereço abaixo para abrir a sua documentação.
@@ -147,7 +134,7 @@ Pronto! A sua documentação no Swagger está funcionando.
 
 
 
-<h2 id="ind">Definindo o Swagger como página principal da API</h2>
+<h2 id="ind">#Passo 4 - Definindo o Swagger como página principal da API</h2>
 
 Vamos configurar o **Swagger** como página principal da nossa API, ou seja, ao digitarmos o endereço: <b>http://localhost:8080</b>, ao invés de abrir a página abaixo:
 
@@ -210,7 +197,7 @@ As alterações acima transformam a classe principal da nossa API (**Blogpessoal
 
 
 
-<h2 id="#pdf">Gerando o PDF da Documentação</h2>
+<h2 id="#pdf">#Passo 5 - Gerando o PDF da Documentação</h2>
 
 
 1) No Swagger, clique no link: <a heref="http://localhost:8080/v2/api-docs" />http://localhost:8080/v2/api-docs para visualizar a documentação no formato JSON.
@@ -259,8 +246,5 @@ As alterações acima transformam a classe principal da nossa API (**Blogpessoal
 
 12) Documentação em PDF gerada!
 
-<<<<<<< HEAD
 <div align="center"><img width="900px" src="https://i.imgur.com/UYOulUu.png" title="source: imgur.com" /></div>
-=======
-<div align="center"><img width="900px" src="https://i.imgur.com/UYOulUu.png" title="source: imgur.com" /></div>
->>>>>>> 2783f5736008e6dfcb4a65e3c16c64b900e8fc90
+
