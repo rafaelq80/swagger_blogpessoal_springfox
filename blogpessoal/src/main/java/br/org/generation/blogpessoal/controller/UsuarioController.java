@@ -32,43 +32,41 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@GetMapping("/all")
-	public ResponseEntity<List<Usuario>> getAll() {
+	public ResponseEntity<List<Usuario>> GetAll() {
 		return ResponseEntity.ok(usuarioRepository.findAll());
 	}
-	
+
 	@GetMapping("/{id}")
-	public ResponseEntity<Usuario> getById(@PathVariable long id){
-		return usuarioRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.notFound().build());				
+	public ResponseEntity<Usuario> GetById(@PathVariable long id) {
+		return usuarioRepository.findById(id)
+			.map(resp -> ResponseEntity.ok(resp))
+			.orElse(ResponseEntity.notFound().build());
 	}
 
 	@PostMapping("/logar")
-	public ResponseEntity<UsuarioLogin> autenticationUsuario(@RequestBody Optional<UsuarioLogin> usuario) {
-		return usuarioService.logarUsuario(usuario).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
+		return usuarioService.Logar(user)
+			.map(resp -> ResponseEntity.ok(resp))
+			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
-	/**
-	 * Método Cadastrar ajustado para o Swagger
-	 */
 	@PostMapping("/cadastrar")
-	public ResponseEntity <Usuario> postUsuario(@RequestBody Usuario usuario) {
-		
-		Usuario novoUsuario = usuarioService.cadastrarUsuario(usuario);
-		
+	public ResponseEntity <Usuario> Post(@RequestBody Usuario usuario) {
+
+		Usuario usuarioResp = usuarioService.cadastrarUsuario(usuario);
 		try {
-			return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
+			return ResponseEntity.status(HttpStatus.CREATED).body(usuarioResp);
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
 		}
-		
+
 	}
-	
+
 	@PutMapping("/alterar")
-	public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuario){
-		Optional<Usuario> updateUsuario = usuarioService.atualizarUsuario(usuario);
+	public ResponseEntity<Usuario> Put(@RequestBody Usuario usuario) {
+		Optional<Usuario> usuarioResp = usuarioService.atualizarUsuario(usuario);
 		try {
-			return ResponseEntity.ok(updateUsuario.get());
+			return ResponseEntity.ok(usuarioResp.get());
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
 		}

@@ -11,58 +11,63 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotNull
-	@Size (min = 2, max = 100)
+
+	@NotNull(message = "O Nome é Obrigatório!")
 	private String nome;
-	
-	@NotNull
-	@Size (min = 2, max = 100)
-	@Email
+
+	@ApiModelProperty(example = "email@email.com.br")
+	@NotNull(message = "O Usuário é Obrigatório!")
 	private String usuario;
-	
-	@NotNull
-	@Size(min = 5)
+
+	@NotNull(message = "A Senha é Obrigatória!")
+	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
-
-	/**
-	 * Novo Atributo - Data de Nascimento
-	 * Não esquecer de Gerar os métodos Get e Set
-	 */
-
+	
 	@Column(name = "dt_nascimento")
-	@JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dataNascimento;
-		
-	@OneToMany (mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonFormat(pattern="yyyy-MM-dd")
+    @NotNull
+	private LocalDate dataNascimento;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List <Postagem> postagem;
+	private List<Postagem> postagem;
 
-
-	public long getId() {
-		return this.id;
+	
+	public Usuario(long id, String nome, String usuario, String senha, LocalDate dataNascimento) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.dataNascimento = dataNascimento;
 	}
 
+	public Usuario() {	}
+	
+	public long getId() {
+		return id;
+	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
 
 	public String getNome() {
-		return this.nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
@@ -70,7 +75,7 @@ public class Usuario {
 	}
 
 	public String getUsuario() {
-		return this.usuario;
+		return usuario;
 	}
 
 	public void setUsuario(String usuario) {
@@ -78,13 +83,13 @@ public class Usuario {
 	}
 
 	public String getSenha() {
-		return this.senha;
+		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	
 	public LocalDate getDataNascimento() {
 		return this.dataNascimento;
 	}
@@ -94,12 +99,11 @@ public class Usuario {
 	}
 
 	public List<Postagem> getPostagem() {
-		return this.postagem;
+		return postagem;
 	}
 
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
 
 }
