@@ -55,6 +55,12 @@ public class UsuarioService {
 						HttpStatus.BAD_REQUEST, "Usuário já existe!", null);
 			}
 			
+			int idade = Period.between(usuario.getDataNascimento(), LocalDate.now()).getYears();
+		
+			if(idade < 18)
+				throw new ResponseStatusException(
+					HttpStatus.BAD_REQUEST, "Usuário menor de 18 anos", null);
+
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
 			String senhaEncoder = encoder.encode(usuario.getSenha());
