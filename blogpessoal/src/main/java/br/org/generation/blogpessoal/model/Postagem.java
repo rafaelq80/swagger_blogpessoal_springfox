@@ -16,11 +16,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_postagens") // create table tb_postagens(
+@Table(name = "tb_postagens")
 public class Postagem {
 
-	@Id // Chave Primária
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto incremento
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@NotNull(message = "O atributo título é obrigatório")

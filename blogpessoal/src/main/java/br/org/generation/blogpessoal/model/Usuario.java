@@ -40,7 +40,7 @@ public class Usuario {
 	
 	@Column(name = "dt_nascimento")
 	@JsonFormat(pattern="yyyy-MM-dd")
-    @NotNull
+    @NotNull(message = "O atributo Data de Nascimento é Obrigatório!")
 	private LocalDate dataNascimento;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
