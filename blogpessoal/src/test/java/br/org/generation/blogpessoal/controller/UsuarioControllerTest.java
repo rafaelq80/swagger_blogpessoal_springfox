@@ -86,7 +86,7 @@ public class UsuarioControllerTest {
 	public void deveRealizarPutUsuario() {
 		
 		HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuarioUpdate);
-		ResponseEntity<Usuario> resposta = testRestTemplate.withBasicAuth("admin@email.com.br", "admin123").exchange("/usuarios/alterar", HttpMethod.PUT, request, Usuario.class);
+		ResponseEntity<Usuario> resposta = testRestTemplate.withBasicAuth("admin@email.com.br", "admin123").exchange("/usuarios/atualizar", HttpMethod.PUT, request, Usuario.class);
 		assertEquals(HttpStatus.OK, resposta.getStatusCode());
 	
 	}
