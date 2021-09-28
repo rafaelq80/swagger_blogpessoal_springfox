@@ -4,7 +4,7 @@
 
 Nesta atividade iremos implementar a Documentação da nossa API com o Swagger. 
 
-Utilize o e-book sobre Swagger (<a href="https://github.com/rafaelq80/swagger_blogpessoal/blob/main/ebook/swagger_documentacao_blog_pessoal.pdf" target="_blank">Clique aqui</a>) e as instruções descritas abaixo como referências para implementar  a Documentação da API.
+
 
 ## Boas Práticas
 
