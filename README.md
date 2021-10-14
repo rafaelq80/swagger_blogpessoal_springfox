@@ -10,9 +10,10 @@ Nesta atividade iremos implementar a Documentação da nossa API com o Swagger.
 
 1. Configure as Dependências no arquivo pom.xml
 2. SwaggerConfig
-3. Executando o Swagger
-4. Definindo o Swagger como página principal da API
-5. Gerando o PDF da Documentação
+3. Alteração na Classe Usuario
+4. Executando o Swagger
+5. Definindo o Swagger como página principal da API
+6. Gerando o PDF da Documentação
 
 
 <h2 id="#dep">#Passo 1 - Dependências</h2>
@@ -117,7 +118,36 @@ public class SwaggerConfig {
 
 
 
-<h2 id="#exec">#Passo 3 - Executando o Swagger</h2>
+
+<h2 id="#user">#Passo 3 - Alteração na Classe Usuario</h2>
+
+Vamos configurar o atributo usuario, da classe Usuario, para emitir um lembrete no Swagger de que deve ser digitado um e-mail no valor do atributo. Para isso, utilizaremos a anotação **@ApiModelProperty**.
+
+Abra o arquivo **Usuario**, na **Camada Model**. Localize o atributo **usuario** e altere de:
+
+```java
+@NotNull(message = "O atributo Usuário é Obrigatório!")
+@Email(message = "O atributo Usuário deve ser um email válido!")
+private String usuario;
+```
+
+Para:
+
+```java
+@ApiModelProperty(example = "email@email.com.br")
+@NotNull(message = "O atributo Usuário é Obrigatório!")
+@Email(message = "O atributo Usuário deve ser um email válido!")
+private String usuario;
+```
+
+Observe na figura abaixo que o Swagger indicará que o atributo usuario deve ser um email:
+
+<div align="center"><img src="https://i.imgur.com/0puxryO.png?1" title="source: imgur.com" /></div>
+
+
+
+
+<h2 id="#exec">#Passo 4 - Executando o Swagger</h2>
 
 
 Inicie a API, abra o seu navegador na Internet e digite o endereço abaixo para abrir a sua documentação.
@@ -134,7 +164,7 @@ Pronto! A sua documentação no Swagger está funcionando.
 
 
 
-<h2 id="ind">#Passo 4 - Definindo o Swagger como página principal da API</h2>
+<h2 id="ind">#Passo 5 - Definindo o Swagger como página principal da API</h2>
 
 Vamos configurar o **Swagger** como página principal da nossa API, ou seja, ao digitarmos o endereço: <b>http://localhost:8080</b>, ao invés de abrir a página abaixo:
 
@@ -197,7 +227,7 @@ As alterações acima transformam a classe principal da nossa API (**Blogpessoal
 
 
 
-<h2 id="#pdf">#Passo 5 - Gerando o PDF da Documentação</h2>
+<h2 id="#pdf">#Passo 6 - Gerando o PDF da Documentação</h2>
 
 
 1) No Swagger, clique no link: <a heref="http://localhost:8080/v2/api-docs" />http://localhost:8080/v2/api-docs para visualizar a documentação no formato JSON.
