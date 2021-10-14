@@ -8,15 +8,15 @@ Nesta atividade iremos implementar a Documentação da nossa API com o Swagger.
 
 ## Boas Práticas
 
-1. Configure as Dependências no arquivo pom.xml
-2. SwaggerConfig
-3. Alteração na Classe Usuario
-4. Executando o Swagger
-5. Definindo o Swagger como página principal da API
-6. Gerando o PDF da Documentação
+1. <a href="#dep">Configure as Dependências no arquivo pom.xml</a>
+2. <a href="#swg">SwaggerConfig</a>
+3. <a href="#clsuser">Alteração na Classe Usuario</a>
+4. <a href="#exec">Executando o Swagger</a>
+5. <a href="#ind">Definindo o Swagger como página principal da API</a>
+6. <a href="#pdf">Gerando o PDF da Documentação</a>
 
 
-<h2 id="#dep">#Passo 1 - Dependências</h2>
+<h2 id="dep">#Passo 1 - Dependências</h2>
 
 Configurando o pom.xml
 
@@ -31,7 +31,7 @@ Insira a seguinte dependência no projeto:
 
 
 
-<h2 id="#swg">#Passo 2 - SwaggerConfig</h2>
+<h2 id="swg">#Passo 2 - SwaggerConfig</h2>
 
 Crie uma nova package no seu projeto chamada **configuration** , dentro dela crie uma classe chamada SwaggerConfig e configure segundo o  modelo abaixo:
 
@@ -117,13 +117,13 @@ public class SwaggerConfig {
 
 
 
+<h3 id="clsuser">#Passo 03 - Alteração na Classe Usuario</h3>
 
+<br />
 
-<h2 id="#user">#Passo 3 - Alteração na Classe Usuario</h2>
+Vamos configurar o atributo **usuario**, da **Classe Usuario**, para emitir um lembrete no Swagger de que deve ser digitado um e-mail no valor do atributo. Para isso, utilizaremos a anotação **@ApiModelProperty**.
 
-Vamos configurar o atributo usuario, da classe Usuario, para emitir um lembrete no Swagger de que deve ser digitado um e-mail no valor do atributo. Para isso, utilizaremos a anotação **@ApiModelProperty**.
-
-Abra o arquivo **Usuario**, na **Camada Model**. Localize o atributo **usuario** e altere de:
+Abra o arquivo **Usuario**, da **Camada Model**, localize o atributo **usuario** e altere de:
 
 ```java
 @NotNull(message = "O atributo Usuário é Obrigatório!")
@@ -140,14 +140,15 @@ Para:
 private String usuario;
 ```
 
-Observe na figura abaixo que o Swagger indicará que o atributo usuario deve ser um email:
+<br />
+
+Observe na figura abaixo que o Swagger indicará que o atributo usuario deve ser um e-mail, ou seja, um exemplo do que deve ser digitado no atributo:
 
 <div align="center"><img src="https://i.imgur.com/0puxryO.png?1" title="source: imgur.com" /></div>
 
 
 
-
-<h2 id="#exec">#Passo 4 - Executando o Swagger</h2>
+<h2 id="exec">#Passo 4 - Executando o Swagger</h2>
 
 
 Inicie a API, abra o seu navegador na Internet e digite o endereço abaixo para abrir a sua documentação.
@@ -227,7 +228,7 @@ As alterações acima transformam a classe principal da nossa API (**Blogpessoal
 
 
 
-<h2 id="#pdf">#Passo 6 - Gerando o PDF da Documentação</h2>
+<h2 id="pdf">#Passo 6 - Gerando o PDF da Documentação</h2>
 
 
 1) No Swagger, clique no link: <a heref="http://localhost:8080/v2/api-docs" />http://localhost:8080/v2/api-docs para visualizar a documentação no formato JSON.
