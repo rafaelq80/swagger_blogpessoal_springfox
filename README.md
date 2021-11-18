@@ -9,11 +9,11 @@ Nesta atividade iremos implementar a Documentação da nossa API com o Swagger.
 ## Boas Práticas
 
 1. <a href="#dep">Configure as Dependências no arquivo pom.xml</a>
-2. <a href="#swg">SwaggerConfig</a>
-3. <a href="#clsuser">Alteração na Classe Usuario</a>
-4. <a href="#exec">Executando o Swagger</a>
-5. <a href="#ind">Definindo o Swagger como página principal da API</a>
-6. <a href="#pdf">Gerando o PDF da Documentação</a>
+2. <a href="#swg">Crie o arquivo SwaggerConfig na Camada Configuration</a>
+3. <a href="#clsuser">Atualização da Classe Usuario na Camada Model</a>
+4. <a href="#exec">Execute o Swagger</a>
+5. <a href="#ind">Defina o Swagger como a página principal da API</a>
+6. <a href="#pdf">Gere o PDF da Documentação</a>
 
 
 <h2 id="dep">#Passo 1 - Dependências</h2>
@@ -117,7 +117,7 @@ public class SwaggerConfig {
 
 
 
-<h3 id="clsuser">#Passo 03 - Alteração na Classe Usuario</h3>
+<h2 id="clsuser">#Passo 03 - Alteração na Classe Usuario</h2>
 
 <br />
 
